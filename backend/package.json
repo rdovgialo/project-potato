@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "project-potato backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rdovgialo/project-potato.git"
+  },
+  "author": "rdovgialo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rdovgialo/project-potato/issues"
+  },
+  "homepage": "https://github.com/rdovgialo/project-potato#readme"
+}
