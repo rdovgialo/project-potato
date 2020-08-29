@@ -1,0 +1,8 @@
+CREATE TABLE recipe(
+	recipe_id SERIAL PRIMARY KEY,
+	description VARCHAR(500) NOT NULL,
+	title VARCHAR(250) NOT NULL,
+	preparation_time INT NOT NULL,
+	created_on TIMESTAMP NOT NULL,
+	author INTEGER REFERENCES users(user_id)	
+);

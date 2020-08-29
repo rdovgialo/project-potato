@@ -1,0 +1,8 @@
+CREATE TABLE step(
+	step_id SERIAL PRIMARY KEY,
+	recipe_id INTEGER REFERENCES recipe(recipe_id),
+	content VARCHAR(500) NOT NULL,
+	title VARCHAR(250) NOT NULL,
+	created_on TIMESTAMP NOT NULL,
+	index SMALLINT NOT NULL
+);
