@@ -1,7 +1,5 @@
 const express = require("express");
-const DatabaseConnector = require("./services/databaseConnector");
 require('dotenv').config();
-const databaseConnector = require('./services/databaseConnector')
 const queryBuilder = require('./services/queryBuilder');
 const User = require('./models/Users')
 const app = express();

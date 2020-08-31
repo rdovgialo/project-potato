@@ -1,5 +1,5 @@
 class QueryBuilder{
-    constructor(data, action, table){
+    constructor(){
         this.query = "";
     }
     build(data, action, table){
@@ -15,11 +15,11 @@ class QueryBuilder{
                 }
             }
             const queryString = `INSERT INTO ${table} (${data_keys}) VALUES (${value_string});`;
-            this.query = queryString;
+            return queryString;
         };
         if (action == "select"){
             const queryString = `SELECT * FROM ${table};`;
-            this.query =  queryString
+            return queryString
         };
     };
 };
