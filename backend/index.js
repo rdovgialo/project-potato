@@ -16,7 +16,7 @@ const app = express();
 //db.connect();
 
 //ROUTES
-require("./routes/defoultRoutes")(app);
+require("./routes/userRoutes")(app);
 
 
 app.listen(5000);
