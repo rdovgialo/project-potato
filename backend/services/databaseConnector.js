@@ -1,29 +1,37 @@
-const { Client } = require('pg')
-require("../models/Recipe")
+const { Client, Pool } = require('pg')
 
 const d = new Date()
 
-class DatabaseConnector {
-    constructor(query) {
-        this.date = d.toISOString()
-        this.query = query
-    };
-    connect(){
-        const client = new Client({
-            user: "postgres",
-            password: "Pot2to3+",
-            host: "localhost",
-            port: 5432,
-            database: "potatoe-stg"
-        });
+const client = new Client({
+    user: "postgres",
+    password: "Pot2to3+",
+    host: "localhost",
+    port: 5432,
+    database: "potatoe-stg"
+});
 
-        client.connect()
-        .then(() => console.log("CONNECTED\n\n\n"))
-        .then(() => client.query(this.query))
-        .then((res) => console.table(res.rows))
-        .catch(e => console.log(e))
-        .finally(() => client.end())
+class DatabaseConnector {
+    constructor() {
+        this.date = d.toISOString();
+        this.data = "";
     };
+
+    async get(query){
+        client.connect()
+        .then(() => console.log("connected to database"))
+        .then(() => {
+            console.log(query);
+            client.query(query);})
+        .then(results => {
+            console.log(results)
+            return results;
+        })
+        .catch(e => console.log(e))
+        .finally(() => {
+            console.log("killing connection")
+            client.end()});
+    };
+
 }
 
 module.exports = DatabaseConnector

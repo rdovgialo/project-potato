@@ -9,13 +9,13 @@ const app = express();
 //app.use()
 
 //Connect to DB
-const user = new User();
-user.create("testUser1", "Ricardas", "Dovgialo", "ricardasmykolasd@gmail.com", true, "1111111111111");
-const query = new queryBuilder();
+//const user = new User();
+//user.create("testUser1", "Ricardas", "Dovgialo", "ricardasmykolasd@gmail.com", true, "1111111111111");
+//const query = new queryBuilder();
 //query.build(user.payload, "post", "users");
-query.build(user.payload, "select", "users");
-const db = new databaseConnector(query.query);
-db.connect();
+//query.build(user.payload, "select", "users");
+//const db = new databaseConnector(query.query);
+//db.connect();
 
 //ROUTES
 require("./routes/defoultRoutes")(app);
