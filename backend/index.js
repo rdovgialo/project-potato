@@ -3,8 +3,13 @@ require('dotenv').config();
 const queryBuilder = require('./services/queryBuilder');
 const User = require('./models/Users')
 const app = express();
+const cors = require('cors');
+const bodyParser = require('body-parser');
 //MIDDLEWARES
-//app.use()
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
 
 //Connect to DB
 //const user = new User();
@@ -17,6 +22,7 @@ const app = express();
 
 //ROUTES
 require("./routes/userRoutes")(app);
+require("./routes/recipeRoutes")(app);
 
 
 app.listen(5000);

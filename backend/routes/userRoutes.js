@@ -13,9 +13,6 @@ const user = new Users();
 const q = new queryBuilder();
 
 module.exports = (app) => {
-    app.get("/", (req, res)=>{
-        res.send("test")
-    });
 
     app.get('/api/users/',(req, res) => {
         const query = q.build("", "select", "users");
