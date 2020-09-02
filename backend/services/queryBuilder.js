@@ -19,8 +19,13 @@ class QueryBuilder{
         };
         if (action == "select"){
             const queryString = `SELECT * FROM ${table};`;
-            return queryString
+            return queryString;
         };
+        if( action == "byName"){
+            //const queryString = `SELECT * FROM ${table} WHERE title = '${data.name}';`;
+            const queryString = `SELECT * FROM ${table} WHERE ${table}_id = 1;`;
+            return queryString;
+        }
     };
 };
 
