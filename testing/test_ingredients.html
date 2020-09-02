@@ -1,0 +1,32 @@
+<html>
+    <script>
+        const potaotePayload = {
+            name: "potatoe",
+            caloric_value: 200,
+            product_type: "vegetables"
+        };
+        const garlicPayload = {
+            name: "garlic",
+            caloric_value: 50,
+            product_type: "condaments"
+        };
+        const lst = [potaotePayload, garlicPayload];
+        const pl = []
+        for(i = 0; i < lst.length; i++){
+            const mainPayload ={
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(lst[i])
+            }
+            const p = fetch('http://localhost:5000/api/recipe/ingredient_new/', mainPayload);
+            pl.push(p);
+        };
+        Promise.all(pl)
+        .then(()=>console.log("done"))
+        .catch(err => console.log(err));
+        
+    </script>
+</html>
